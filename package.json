@@ -1,0 +1,24 @@
+{
+  "name": "node-express-mongoose",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon src/server.js",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.6.3",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.1",
+    "nodemon": "^3.0.1"
+  }
+}
