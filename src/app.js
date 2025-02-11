@@ -36,6 +36,19 @@ export class App {
   }
   initializeMiddlewares() {
     this.app.use(express.json()) // 取到json数据 在 req.body 之中
+    this.app.use(express.urlencoded({ extended: true }))
+    // 添加 CORS 支持
+    this.app.use((req, res, next) => {
+      res.header('Access-Control-Allow-Origin', '*')
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
+      res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+      next()
+    })
+    // 请求日志
+    this.app.use((req, res, next) => {
+      logger.info(`${req.method} ${req.url}`)
+      next()
+    })
   }
   initializeRoutes(routes) {
     routes.forEach((route) => {
